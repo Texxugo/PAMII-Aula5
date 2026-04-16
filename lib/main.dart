@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'telasucesso.dart';
 
 void main() {
   runApp(const MyApp());
@@ -55,9 +56,14 @@ class _CadastroScreenState extends State<CadastroScreen> {
 
   void _enviarFormulario() {
     if (_formKey.currentState!.validate()) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Cadastro realizado com sucesso!')),
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const SucessoScreen()),
       );
+      _nomeController.clear();
+      _emailController.clear();
+      _senhaController.clear();
+      _confirmarSenhaController.clear();
     }
   }
 
